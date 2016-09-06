@@ -1,12 +1,16 @@
 # Progressive-Web-App-Workshop
-### 3 Day Workshop run at CodeNode. We'll be hoping to note down everything they teach us.
+### 3 Day Workshop run at CodeNode. We'll be hoping to note down everything they teach us. All the materials will be made available to the public. (open sourced)
 
 **If you are unable to make it, but have any Questions put them on the `questtions.md` and i'll try to get them answered**
 
 ###### Sarah Clark: Program Manager @Google
+- sarahclark@google.com had a chat with her and she makes it to london quite often and is willing to do a talk about PWA or even a day workshop depending on her timing. YAY!!!!
 ###### Sam Dutton: Developer Advocate @Google  
+- dutton@google.com
 
 ## Day 1
+### 11.00 am
+
 
 **What do you want to work on after the workshop?**
 - LBGT Hack
@@ -110,4 +114,62 @@
 
 **TIPS/HINTS**  
 Surma - HTTP2 UDACITY COURSE Client server communication  
+**TIPS/HINTS**
+
+### 11.00 am
+
+**Responsive Design**
+- quick tour on reponsive design.
+- Do as little as possible
+- Treat layout as an enhancement  
+
+**Size Matters :wink:**
+- GOLDEN RULE: Never make users scroll horizontally. (everyone at FAC should already know this...)
+- Use
+```html
+<meta name="viewport"  content="width=device-width, initial-scale=1">
+```
+ (everyone at FAC should already know this too...)
+- Use
+```css
+ img {
+     max-width: 100%
+ }
+ img.foo {
+     width: 300px;
+ }
+```
+- use media queries  (everyone at FAC should already know this three...)
+    - although not great to have multiple queries for each individual device as samsung might have a phone with a width of 600px, but then HTC might have one for 609px.
+    - use grid system.
+    - Start small (Mobile First - seriously we do this at FAC too :heart:)
+        - add major breakpoint
+        - optimise for reading: 70-80 characters per line
+        - this can be done in Javascript
+        - don't forget your old friend `calc();`
+        - avoid images if you can. use CSS, SVG and if you do decide to use images then go for lowest possible resolutions for the images and correct image types (PNG, JPEG)
+        - these elements have good adoption rate
+        ```html
+        <picture>
+            <source src="..." srcset="...">
+        </picture>
+        <source>
+        </source>
+        .......................................
+            <src="wallaby">
+            <srcset="wallaby_1x 1x, wallaby_2x 2x">
+            <srcset="small.jpg 500w, medium 1000w">
+        ```
+        - `srcset` auto selects the image depending on the display density, and falls back to source on browser that don't support `srcset`
+        - `w` tells the browser the image width, so if your browser window is 500px wide on a 2x display it will show the 1000w image. Great way to optimise data cost and reduce the number of data request.
+        - All of this can be achieved in the picture element, and browsers that don't support picture, it will fallback to image element.
+            - you can achieve a lot with just these elements in terms of responsiveness
+            - you don't have to manually input these, use build tools for creating the different sized images  
+        - Flexbox getting the :heart:
+        - CSS grid (THE NEXT BIG THING not supported at all on canweuse though :cry:)
+- Think of your content as a stream of stuff, and then manipulate the content for the needs of the layout
+
+
+**TIPS/HINTS**  
+ modern way to do responsive videos - Dash  
 **TIPS/HINTS**
