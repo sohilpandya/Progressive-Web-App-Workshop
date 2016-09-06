@@ -3,11 +3,17 @@
 
 **If you are unable to make it, but have any Questions put them on the `questtions.md` and i'll try to get them answered**
 
+
 ###### Sarah Clark: Program Manager @Google
-- sarahclark@google.com had a chat with her and she makes it to london quite often and is willing to do a talk about PWA or even a day workshop depending on her timing. YAY!!!!
+- sarahclark@google.com had a chat with her and she makes it to london quite often and is willing to do a talk about PWA or even a day workshop depending on her timing. YAY!!!!  
+
 ###### Sam Dutton: Developer Advocate @Google  
 - dutton@google.com
 
+###### Halima Koundi
+- Twitter handle @hkoundi, she is an apprentice at a consultancy, would love to do a talk about code craftmanship and her apprenticeship.
+
+### **Content for the Workshop - [HERE](https://drive.google.com/drive/u/0/folders/0B9xlQg9XpugsNHhIWHFTbWhQTnM)**
 ## Day 1
 ### 11.00 am
 
@@ -148,7 +154,7 @@ Surma - HTTP2 UDACITY COURSE Client server communication
         - this can be done in Javascript
         - don't forget your old friend `calc();`
         - avoid images if you can. use CSS, SVG and if you do decide to use images then go for lowest possible resolutions for the images and correct image types (PNG, JPEG)
-        - these elements have good adoption rate
+    - these elements have good adoption rate
         ```html
         <picture>
             <source src="..." srcset="...">
@@ -173,3 +179,56 @@ Surma - HTTP2 UDACITY COURSE Client server communication
 **TIPS/HINTS**  
  modern way to do responsive videos - Dash  
 **TIPS/HINTS**
+
+### 13.00 pm
+
+### Introduction to Service Workers.
+
+**What is a Service Worker?**
+- Client side proxy server written in Javascript
+- required **https**
+- Application makes a request, it then goes through the service worker, which then takes it to the server. (or if offline then fetches data from offline cache)
+- it can respond to Push events, alongside background syncing
+- Service Worker Lifecycle **>>> FIND AN IMAGE TO PUT BELOW. <<<<<**
+    - Install (event in SW)
+    - Activate (event in SW)
+- Registration of a service worker
+```js
+if(!service worker) {
+    continue
+} else {    
+    serviceworker.register(/service-worker.js)
+    .then(() => {
+        do some service work
+    })
+    .catch((error) =>{
+        whoops! it broke....
+    })
+}
+```
+
+**TIPS/HINTS**  
+Dev Tools Application section.
+Setup a local webserver - Web Server for Chrome  
+**TIPS/HINTS**
+
+
+### Service Worker Lab
+
+- cd into the service-worker-lab and then run
+```
+ python -m SimpleHTTPServer 8000
+```
+- or use Web Server for Chrome extension  
+- Go to Servicer-Worker-lab README.md
+- Open progressive-web-app-ilt-codelabs.pdf and follow along **1.2**
+- Please use incognito from the beginning
+
+**Problem/Solution**
+- **1.2** Section 4
+    - it should show 3 console logs (activate, register and install)
+    - but if you are only seeing 2.
+    - Go to Application in Dev tools
+    - Server Workers
+    - unregister the app.
+    - Refresh and you should see 3 console logs!! :tada:
