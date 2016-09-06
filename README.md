@@ -209,11 +209,12 @@ if(!service worker) {
 
 **TIPS/HINTS**  
 Dev Tools Application section.
-Setup a local webserver - Web Server for Chrome  
+Setup a local webserver - Web Server for Chrome
+Lets Encrypt - for free HTTPS certificate
 **TIPS/HINTS**
 
 
-### Service Worker Lab
+### Service Worker Lab  
 
 - cd into the service-worker-lab and then run
 ```
@@ -232,3 +233,95 @@ Setup a local webserver - Web Server for Chrome
     - Server Workers
     - unregister the app.
     - Refresh and you should see 3 console logs!! :tada:
+
+### 14:30 pm
+### Instant loading with service workers and app shell  
+
+**Architecture of the app**
+- App shell should be cached.
+    - app navigation bar
+- Server Side Rendering (SSR)
+- Client Side Rendering (CSR)
+    - huge time gap with this.
+
+**Recommended pattern for PWA**
+- Application shell (SSR both shell + content for entry page). Use JavaScript to fetch content for any further routes and do a "take over"
+- Appilcation shell (SSR) + use JavaScript to fetch content once the app shell is loaded
+- SSR
+- CSR ( full page caching, potential for JSON Payload bootstraping via server)
+
+**How to Build an app shell**
+- Move to https
+- cache static only
+
+**Use a web app manifest file**
+- manifest.json
+
+**Push Notification**
+
+
+### 15.20 pm
+
+**Test against requirements**
+- Device emulation: Chrome DevTools ...
+    - Throtling tool
+- Network emulation: WebpageTest, Link Conditioner...
+- Setup a Device Lab
+    - Google Mini Mobile Device Lab: Test on any Device
+    - OpenSTF: simple app to test websites on Android devices
+    - Look into impaired Network
+
+- Validation Tools: eslint
+- Lighthouse
+- PageSpeed Insights
+- Webpage Test
+
+**Lighthouse - Test your PWA**
+- Testing Web Apps, with PWA in mind
+- Run it in Chrome extension or CLI
+- [Link](https://github.com/GoogleChrome/lighthouse)
+
+### Lighthouse Lab   
+- cd into the lighthouse-lab and then run
+```
+ python -m SimpleHTTPServer 8000
+```
+- or use Web Server for Chrome extension  
+- Go to lighthouse-lab README.md
+- Open progressive-web-app-ilt-codelabs.pdf and follow along **1.3**
+- Please use incognito from the beginning
+
+**Offline Support**
+### Offline Quickstart Lab   
+- cd into the offline-quickstart-lab and then run
+```
+ python -m SimpleHTTPServer 8000
+```
+- or use Web Server for Chrome extension  
+- Go to offline-quickstart-lab README.md
+- Open progressive-web-app-ilt-codelabs.pdf and follow along **1.4**
+- Please use incognito from the beginning
+
+**Problem/Solution**
+- **1.4**
+    - the install service worker helper needs to look like this:
+    ```js
+    self.addEventListener('install', function(event) {
+      event.waitUntil(
+          caches.open('static-cache-v1')
+            .then(function(cache) {
+              return cache.addAll([
+                '/',
+                'index.html',
+                'js/main.js',
+                'css/main.css'
+              ]);
+            })
+        );
+    });
+    ```
+    - missing `'/'`
+
+**TIPS/HINTS**  
+Network Link Conditioner in system preferences MacOS  
+**TIPS/HINTS**
