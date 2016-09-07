@@ -56,3 +56,27 @@ chrome://inspect/#devices - very useful port forwarding
 **problem/solutions**
 - **7 Head Request** add `console.log(response.headers.get('Content-Type'));` to `readResponseAsText` function to be able to view specifics within the header.
     - The reason `response.headers` does not return anything is because we are running on localhost and not sending any headers on here. duh..;.
+
+### Caching File with the service Workers (view presentation)
+
+### Cache API Lab
+- cd into the cache-api-lab and then run
+```
+ python -m SimpleHTTPServer 8000
+```
+- or use Web Server for Chrome extension  
+- Go to cache-api-lab README.md
+- Open progressive-web-app-ilt-codelabs.pdf and follow along **1.7**
+- Please use incognito from the beginning
+
+### IndexedDB (view persentation)
+
+### Indexed DB Lab
+- cd into the indexed-db-lab and then run
+```
+ python -m SimpleHTTPServer 8000
+```
+- or use Web Server for Chrome extension  
+- Go to indexed-db-lab README.md
+- Open progressive-web-app-ilt-codelabs.pdf and follow along **1.7**
+- Please use incognito from the beginning
