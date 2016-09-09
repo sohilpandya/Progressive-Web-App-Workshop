@@ -17,5 +17,5 @@
 
 **I'll be taking notes for each presentation/lab that we walk through on all 3 days, you can find them below**
 - [Day 1](/day-1.md)
-- [Day 2]()
-- [Day 3]()
+- [Day 2](/day-2.md)
+- [Day 3](/day-3.md)
